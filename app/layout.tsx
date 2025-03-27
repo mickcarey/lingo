@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { ExitModal } from "@/components/modals/exit-modal";
+import { PracticeModal } from "@/components/modals/practice-modal";
+import { HeartsModal } from "@/components/modals/hearts-modal";
 
 const font = Nunito({
   variable: "--font-geist-sans",
@@ -20,10 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body
-          className={`${font.variable} antialiased`}
-        >
+      <html lang="en" className="h-full">
+        <body className={`${font.variable} antialiased h-full`}>
+          <ExitModal />
+          <PracticeModal />
+          <HeartsModal />
           {children}
         </body>
       </html>

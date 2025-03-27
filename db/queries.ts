@@ -254,9 +254,9 @@ export const getTopTenUsers = cache(async () => {
       userId: true,
       userName: true,
       userImageSrc: true,
-      points: true,
-    },
+      points: true
+    }
   });
-
+  
   return data;
-});
+})
