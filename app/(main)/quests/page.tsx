@@ -8,8 +8,6 @@ import { StickyWrapper } from "@/components/sticky-wrapper";
 import { getUserProgress, getUserSubscription } from "@/db/queries";
 
 import { Quests } from "@/components/quests";
-import { Separator } from "@/components/ui/separator";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { quests } from "@/constants";
 import { Progress } from "@/components/ui/progress";
 

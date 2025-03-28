@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ExitModal } from "@/components/modals/exit-modal";
 import { PracticeModal } from "@/components/modals/practice-modal";
 import { HeartsModal } from "@/components/modals/hearts-modal";
+import { Toaster } from "sonner";
 
 const font = Nunito({
   variable: "--font-geist-sans",
@@ -25,6 +26,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" className="h-full">
         <body className={`${font.variable} antialiased h-full`}>
+          <Toaster />
           <ExitModal />
           <PracticeModal />
           <HeartsModal />

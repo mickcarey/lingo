@@ -9,7 +9,6 @@ import { getUserProgress, getUserSubscription } from "@/db/queries";
 
 import { Items } from "./items";
 import { Quests } from "@/components/quests";
-import { Loader } from "lucide-react";
 
 const ShopPage = async () => {
   const userProgressData = getUserProgress();
