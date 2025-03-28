@@ -4,14 +4,14 @@ import { getIsAdmin } from "@/lib/admin";
 import { eq } from "drizzle-orm"
 import { NextResponse } from "next/server";
 
-export const GET = async (req: Request, { params }: { params: { challengeOptionId: number }}) => {
+export const GET = async (req: Request, { params }: { params: Promise<{ challengeOptionId: number }>}) => {
   const isAdmin = await getIsAdmin();
 
   if (!isAdmin) {
     return new NextResponse("Unauthorised", { status: 401 });
   }
 
-  const { challengeOptionId } = params;
+  const { challengeOptionId } = await params;
   const data = await db.query.challengeOptions.findFirst({
     where: eq(challengeOptions.id, challengeOptionId)
   });
@@ -19,7 +19,7 @@ export const GET = async (req: Request, { params }: { params: { challengeOptionI
   return NextResponse.json(data);
 }
 
-export const PUT = async (req: Request, { params }: { params: { challengeOptionId: number }}) => {
+export const PUT = async (req: Request, { params }: { params: Promise<{ challengeOptionId: number }>}) => {
   const isAdmin = await getIsAdmin();
 
   if (!isAdmin) {
@@ -35,7 +35,7 @@ export const PUT = async (req: Request, { params }: { params: { challengeOptionI
   return NextResponse.json(data[0]);
 }
 
-export const DELETE = async (req: Request, { params }: { params: { challengeOptionId: number }}) => {
+export const DELETE = async (req: Request, { params }: { params: Promise<{ challengeOptionId: number }>}) => {
   const isAdmin = await getIsAdmin();
 
   if (!isAdmin) {

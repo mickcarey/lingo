@@ -4,7 +4,7 @@ import { getIsAdmin } from "@/lib/admin";
 import { eq } from "drizzle-orm"
 import { NextResponse } from "next/server";
 
-export const GET = async (req: Request, { params }: { params: { courseId: number }}) => {
+export const GET = async (req: Request, { params }: { params: Promise<{ courseId: number }>}) => {
   const isAdmin = await getIsAdmin();
 
   if (!isAdmin) {
@@ -19,7 +19,7 @@ export const GET = async (req: Request, { params }: { params: { courseId: number
   return NextResponse.json(data);
 }
 
-export const PUT = async (req: Request, { params }: { params: { courseId: number }}) => {
+export const PUT = async (req: Request, { params }: { params: Promise<{ courseId: number }>}) => {
   const isAdmin = await getIsAdmin();
 
   if (!isAdmin) {
@@ -35,7 +35,7 @@ export const PUT = async (req: Request, { params }: { params: { courseId: number
   return NextResponse.json(data[0]);
 }
 
-export const DELETE = async (req: Request, { params }: { params: { courseId: number }}) => {
+export const DELETE = async (req: Request, { params }: { params: Promise<{ courseId: number }>}) => {
   const isAdmin = await getIsAdmin();
 
   if (!isAdmin) {
