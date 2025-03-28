@@ -56,7 +56,9 @@ export const Sidebar = ({ className }: Props) => {
           <Loader className="h-5 w-5 text-muted-foreground animate-spin" />
         </ClerkLoading>
         <ClerkLoaded>
-          <UserButton />
+          <UserButton appearance={{
+            elements: { userButtonPopoverCard: { pointerEvents: "initial" }}
+          }}/>
         </ClerkLoaded>
       </div>
     </div>
