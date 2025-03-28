@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -13,9 +15,10 @@ import { SidebarItem } from "./sidebar-item";
 
 type Props = {
   className?: string;
+  setSheetOpen?: any;
 };
 
-export const Sidebar = ({ className }: Props) => {
+export const Sidebar = ({ className, setSheetOpen }: Props) => {
   return (
     <div className={cn(
       "flex h-full lg:w-[256px] lg:fixed left-0 top-0 px-4 border-r-2 flex-col",
@@ -34,21 +37,25 @@ export const Sidebar = ({ className }: Props) => {
           label="Learn" 
           href="/learn"
           iconSrc="/learn.svg"
+          onClick={() => setSheetOpen(false)}
         />
         <SidebarItem 
           label="Leaderboard" 
           href="/leaderboard"
           iconSrc="/leaderboard.svg"
+          onClick={() => setSheetOpen(false)}
         />
         <SidebarItem 
           label="quests" 
           href="/quests"
           iconSrc="/quests.svg"
+          onClick={() => setSheetOpen(false)}
         />
         <SidebarItem 
           label="shop" 
           href="/shop"
           iconSrc="/shop.svg"
+          onClick={() => setSheetOpen(false)}
         />
       </div>
       <div className="p-4">
