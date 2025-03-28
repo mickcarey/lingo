@@ -14,6 +14,10 @@ export async function POST(req: Request) {
   const body = await req.text();
   const signature = (await headers()).get("Stripe-Signature") as string;
 
+  if (body) {
+    return new NextResponse(signature, { status: 404 });
+  }
+
   let event: Stripe.Event;
 
   try {
